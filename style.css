@@ -87,6 +87,9 @@ main {
     float: left;
   }
 }
+.wrapper {
+  word-break: break-all;
+}
 @media screen and (max-width: 900px) and (min-width: 400px) {
   .wrapper {
     width: 98%;
