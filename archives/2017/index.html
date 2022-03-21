@@ -267,7 +267,7 @@
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Suche">
+          <input type="text" class="search-input" id="search-input" placeholder="Buscar">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -319,7 +319,7 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Primera búsqueda, se está cargando el archivo índice, por favor espere...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -415,7 +415,7 @@
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Sin resultados<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
