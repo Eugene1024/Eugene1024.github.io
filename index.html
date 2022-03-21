@@ -1,114 +1,507 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta charset="utf-8">
+  
   <title>Hexo</title>
-   <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
 </head>
 
-    <body>
-        <div id="first">
-            <header class="header" >
-  <div class="blog-title" >
-    <a href="/" class="logo">HexoRM-RF</a>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
   </div>
 </header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-hexo插入图片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/19/hexo插入图片/" class="article-date">
+  <time datetime="2022-03-19T02:52:44.000Z" itemprop="datePublished">2022-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/19/hexo插入图片/">hexo插入图片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo使用Github-pages文章插入图片问题"><a href="#Hexo使用Github-pages文章插入图片问题" class="headerlink" title="Hexo使用Github pages文章插入图片问题"></a>Hexo使用Github pages文章插入图片问题</h1><p>搭建一个博客以后</p>
+<p>主要的目的还是用来写文章，对于一个程序员来说，一篇文章的主要内容便是文字，代码和图片，实际上文字和代码md本身就解决了，所见即所得。图片的解决自己之前也了解两种方式。</p>
+<p>1.比如把图片上传到第三方图床上，引用图片的绝对地址。</p>
+<p>2.把图片也上传到github，把图片的地址复制到文章中，但是这样操作实际上很麻烦，上传了文章还去修改文章图片，本地编辑的时候是看不到实时效果的，这种实际上也是引用图片的绝对地址。</p>
+<p>很长一段时间自己使用typecho对hexo基本上没使用，这个上传图片的基本问题也没有得到解决，直到自己的Typecho博客挂掉以后没有续费域名和服务器了。</p>
+<p><strong>免费的真香</strong></p>
+<p><strong>同时自己又有了折腾的动力</strong></p>
+<p>自己开始重新思考这个问题。</p>
+<h1 id="HEXO文章如何插入图片"><a href="#HEXO文章如何插入图片" class="headerlink" title="HEXO文章如何插入图片"></a>HEXO文章如何插入图片</h1><h2 id="文章插入图片"><a href="#文章插入图片" class="headerlink" title="文章插入图片"></a>文章插入图片</h2><p>第三方图床不用说了，主要说说上传图片到hexo静态网页所在的服务器，本地在编辑文章的时候需要操作简单，能实时看到文章效果，文章上传了以后文件夹需要明确，方便管理</p>
+<p>在hexo中使用<strong>文章资源文件夹</strong>需要在<code>config.yaml</code>文件中更改一下配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+
+<p>当该配置被应用后，使用<code>hexo new</code>命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
+<p>这个时候把图片放到文章所在的同名文件夹下，就可以使用了，md里面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](同名文件夹/xxx.jpg)</div></pre></td></tr></table></figure>
+
+<p>像上面这样写了以后hexo g生成本地静态页面以后，静态页面无法加载出图片，静态页面和图片在同一级目录下面，想着编辑图片能不能去掉文件夹前缀如下，试了一下实际上是可以的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](xxx.jpg)</div></pre></td></tr></table></figure>
+
+<p>这样就解决了编辑的时候是看到效果， 并且编辑时看到的效果和网页生成的是一样的</p>
+<p>但是这样本地编辑还是不太方便，需要把图片复制到对应的文件夹再去编辑文章，有没有一种方法直接在编辑器里面编辑图片的时候图片就传到对应目录下呢。</p>
+<h2 id="文章图片编辑"><a href="#文章图片编辑" class="headerlink" title="文章图片编辑"></a>文章图片编辑</h2><p>还真有，不得不说Typoar这个编辑器很厉害，在<strong>文件—偏好设置—图像—插入图像</strong> 下设置，复制到指定路径，这里可以勾选对本地和网络位置应用上诉规则以及优先使用先对路径。</p>
+<p>这里设置了以后直接复制图片(本地图片、使用截图工具截取的图片、网络图片)到编辑器里面就可以实现图片复制文章同名的文件夹下，并且编辑器里能实时看到效果，如果没有文章同名的文件夹会自动创建   。</p>
+<img src="/2022/03/19/hexo插入图片/image-20220321092746553.png" alt="image-20220321092746553" title="image-20220321092746553">
 
 
-        </div>
-        <div class="wrapper">
-            <div class="container">
-                <main class="main">
-                    
-<section class="posts">
-<h1>Articles</h1>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2022/03/19/hexo插入图片/">hexo插入图片 </a>      <div class="post-time">2022-03-19</div></h3>
- </div>
 
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/03/19/hexo插入图片/" data-id="cl1020bmh0007lgivqx96a6rw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2022/03/19/aaa/">aaa </a>      <div class="post-time">2022-03-19</div></h3>
- </div>
 
+  
+    <article id="post-aaa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/19/aaa/" class="article-date">
+  <time datetime="2022-03-19T01:44:49.000Z" itemprop="datePublished">2022-03-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/19/aaa/">aaa</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+         <img src="/2022/03/19/aaa/image-20220319100643601.png" alt="image-20220319100643601" title="image-20220319100643601">
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/03/19/aaa/" data-id="cl1020bl50003lgivfqzf0hye" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2022/03/18/second - 副本/">In&amp;Out </a>      <div class="post-time">2022-03-18</div></h3>
- </div>
 
+  
+    <article id="post-second - 副本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/18/second - 副本/" class="article-date">
+  <time datetime="2022-03-18T08:35:10.000Z" itemprop="datePublished">2022-03-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/18/second - 副本/">In&amp;Out</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="输入与输出222"><a href="#输入与输出222" class="headerlink" title="输入与输出222"></a>输入与输出222</h1><p>最近我一直在思考如何学习。之前听过stomy zhang讲过学习</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/03/18/second - 副本/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/03/18/second - 副本/" data-id="cl1020blk0005lgivu8yrn12g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2017/03/15/Git and Github/">Git&amp;Github的一些资料 </a>      <div class="post-time">2017-03-15</div></h3>
- </div>
 
+  
+    <article id="post-Git and Github" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/15/Git and Github/" class="article-date">
+  <time datetime="2017-03-15T08:35:10.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/Git and Github/">Git&amp;Github的一些资料</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Git and Github</strong></p>
+<p><a href="https://www.yangzhiping.com/tech/github.html">https://www.yangzhiping.com/tech/github.html</a>  阳志平 如何高效利用Github</p>
+<p><a href="http://www.runoob.com/w3cnote/git-guide.html">http://www.runoob.com/w3cnote/git-guide.html</a>  Github简明教程</p>
+<p><a href="http://www.worldhello.net/">http://www.worldhello.net/</a>  Github权威指南</p>
+<p><a href="http://get.ftqq.com/?cate=1&amp;page=2&amp;new=0">http://get.ftqq.com/?cate=1&amp;page=2&amp;new=0</a> Get社区</p>
+<p><a href="https://www.v2ex.com/t/313267#reply85">https://www.v2ex.com/t/313267#reply85</a> github视频</p>
+<p><a href="http://www.runoob.com/git/git-remote-repo.html">http://www.runoob.com/git/git-remote-repo.html</a> git远程仓库 菜鸟教程</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/15/Git and Github/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/15/Git and Github/" data-id="cl1020bku0001lgivpxzat920" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2017/03/15/boke/">一些杰出的个人博客和网站 </a>      <div class="post-time">2017-03-15</div></h3>
- </div>
 
+  
+    <article id="post-boke" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/15/boke/" class="article-date">
+  <time datetime="2017-03-15T08:35:10.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/boke/">一些杰出的个人博客和网站</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.ruanyifeng.com/" target="_blank" rel="external">阮一峰的个人</a></p>
+<p><a href="http://www.liaoxuefeng.com/" target="_blank" rel="external">廖雪峰的个人博客</a></p>
+<p><a href="www.qqdie.com">Jrotty的个人网站</a>      Typecho</p>
+<p><a href="http://www.ahonn.me/" target="_blank" rel="external">ahonn的个人网站</a>    前端 、 hexo主题编写</p>
+<p><a href="http://mouto.org/" target="_blank" rel="external">卜卜口的个人网站</a>    前端</p>
+<p><a href="http://www.zhangxinxu.com/" target="_blank" rel="external">张鑫旭</a>     前端  html+css</p>
+<p><a href="https://yanhaijing.com/" target="_blank" rel="external">颜海镜</a>    前端</p>
+<p><a href="https://thinkhard.tech/" target="_blank" rel="external">神奇的战士</a>  Python</p>
+<p><a href="http://www.wdk.pw/" target="_blank" rel="external">王登科</a>  互联网、文字、创意</p>
+<p><a href="http://www.bystudent.com/" target="_blank" rel="external">ByStudent</a>  网络安全</p>
+<p><a href="http://iyanlei.com/" target="_blank" rel="external">Ray</a>  全栈</p>
+<p><a href="https://uedsky.com/" target="_blank" rel="external">Brook</a>  前端</p>
+<p><a href="http://dbanotes.net/" target="_blank" rel="external">冯大辉</a>  互联网</p>
+<p><a href="http://www.wxtlife.com/" target="_blank" rel="external">技术特工</a> 安卓</p>
+<p><a href="liangwenhao.cn">大懒虫   </a>安全</p>
+<p><a href="http://www.trinea.cn/" target="_blank" rel="external">Trinea</a> 安卓</p>
+<p><a href="https://www.diycode.cc/sites" target="_blank" rel="external">diycode</a>  导航    github trending</p>
+<p><a href="http://news.caibaojian.com/" target="_blank" rel="external">前段圈</a>  前端</p>
+<p><a href="http://ftqq.com/create" target="_blank" rel="external">方糖气球</a>  全栈</p>
+<p><a href="http://ai-start.com/" target="_blank" rel="external">机器学习爱好者</a>  机器学习 </p>
+<p><a href="https://zeove.com/" target="_blank" rel="external">哲尔夫</a>  文字</p>
+<p><a href="https://drakeet.me/" target="_blank" rel="external">许晓峰</a>  安卓JAVA</p>
+<p><a href="https://blog.forecho.com/" target="_blank" rel="external">forecho</a> PHP、JavaScript、Python  产品经理</p>
+<p><a href="http://www.daqianduan.com/nav" target="_blank" rel="external">大前端 网址导航</a></p>
+<p><a href="https://crossoverjie.top/" target="_blank" rel="external">crossoverjie</a> java</p>
+<p><a href="https://blog.jamespan.me/" target="_blank" rel="external">潘小鶸ruò</a> 数据库平台技术专家 阿里</p>
+<p><a href="http://evilcos.me/" target="_blank" rel="external">余弦</a>  web安全</p>
+<p><a href="https://feahter.github.io/2016/12/08/%E5%89%8D%E7%AB%AF%E5%A4%A7%E7%A5%9E/" target="_blank" rel="external">一些前端大佬</a></p>
+<p><a href="https://wenhuiyang-luck.github.io/about/" target="_blank" rel="external">杨小慧</a> 前端</p>
+<p><a href="http://litten.me/2017/02/10/brave-new-world/#more" target="_blank" rel="external">鹅厂少年</a> 鹅厂少年  前端</p>
+<p><a href="https://www.nosuchfield.com/" target="_blank" rel="external">野生站长</a> 野生站长</p>
+<p><a href="http://jser.me/" target="_blank" rel="external">js程序员</a> js程序员</p>
+<p><a href="http://lusongsong.com/" target="_blank" rel="external">卢松松</a> 卢松松<br><a href="https://www.laike9m.com/" target="_blank" rel="external">laike9m</a> Python Google</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/15/boke/" data-id="cl1020blb0004lgivn7bmmtey" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2017/03/15/second/">In&amp;Out </a>      <div class="post-time">2017-03-15</div></h3>
- </div>
 
+  
+    <article id="post-second" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/15/second/" class="article-date">
+  <time datetime="2017-03-15T08:35:10.000Z" itemprop="datePublished">2017-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/15/second/">In&amp;Out</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="输入与输出"><a href="#输入与输出" class="headerlink" title="输入与输出"></a>输入与输出</h1><p>最近我一直在思考如何学习。之前听过stomy zhang讲过学习</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/03/15/second/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/15/second/" data-id="cl1020bmn0008lgivtr7pxizm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
-<article class="post">
-  <div class="post-title">
-   <h3> <a class="post-title-link" href="/2016/09/10/hello-world/">Hello World </a>      <div class="post-time">2016-09-10</div></h3>
- </div>
 
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/10/hello-world/" class="article-date">
+  <time datetime="2016-09-09T18:33:31.258Z" itemprop="datePublished">2016-09-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/10/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/09/10/hello-world/" data-id="cl1020bm90006lgiv3h6i5qbp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
 </article>
 
 
-<second class="second">
- 
+  
 
-</second>
 </section>
-                </main>
-            </div>
-            <div class="container2">
-                <main class="main2">
-                    <div class="col-second">
-                        <div class="col-box col-box-author">
-                            <img class="avatar" src="/img/22.jpg" alt="evi1m0">
-                            <div class="col-box-title name">eugene1024</div>
-                            <p>icode1024[at]gmail.com</p>
-                            <p class="contact">
-                                <a href="#" target="_blank">Weibo</a>
-                                <a href="#" target="_blank">Twitter</a>
-                                <a href="https://github.com/eugene1024" target="_blank">GitHub</a>
-                            </p>
-                        </div>
-                       
-                         <!--<div class="col-box">
-                            <div class="col-box-title">Newest Posts</div>
-                            <ul class="post-list">
-                                <li><a class="post-link" href="/2018/04/19/Firefox_302_Redirect_URL_Spoofing_Vulnerability.html">Firefox 56.0 302 Redirect URL Spoofing Vulnerability</a></li>
-                            </ul>
-                        </div>-->
-                        
-                    </div>
-                </main>
-            </div>
-            <div style="clear:both;">
-            </div>
-        </div>
-     
-    </body>
+        
+          <aside id="sidebar">
+  
+    
 
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/19/hexo插入图片/">hexo插入图片</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/19/aaa/">aaa</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/18/second - 副本/">In&amp;Out</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/Git and Github/">Git&amp;Github的一些资料</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/15/boke/">一些杰出的个人博客和网站</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
 </html>
