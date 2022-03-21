@@ -1,257 +1,520 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="null" color-mode="light">
+
+  <head>
   <meta charset="utf-8">
-  
-  <title>Git&amp;Github的一些资料 | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git and Github
-https://www.yangzhiping.com/tech/github.html  阳志平 如何高效利用Github
-http://www.runoob.com/w3cnote/git-guide.html  Github简明教程
-http://www.worldhello.net/  Github权威指南
-http://get.ftqq.com/?cate=">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Git&Github的一些资料">
-<meta property="og:url" content="http://yoursite.com/2017/03/15/Git and Github/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Git and Github
-https://www.yangzhiping.com/tech/github.html  阳志平 如何高效利用Github
-http://www.runoob.com/w3cnote/git-guide.html  Github简明教程
-http://www.worldhello.net/  Github权威指南
-http://get.ftqq.com/?cate=">
-<meta property="og:updated_time" content="2018-07-06T02:25:24.501Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git&Github的一些资料">
-<meta name="twitter:description" content="Git and Github
-https://www.yangzhiping.com/tech/github.html  阳志平 如何高效利用Github
-http://www.runoob.com/w3cnote/git-guide.html  Github简明教程
-http://www.worldhello.net/  Github权威指南
-http://get.ftqq.com/?cate=">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="undefined" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="null" />
   
   
-    <link rel="icon" href="/favicon.png">
+  <title>
+    
+      Git&amp;Github的一些资料 
+      
+      
+      |
+    
+     Hexo
+  </title>
+
   
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/color-scheme.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/github-markdown.css">
+<link rel="stylesheet" href="/css/highlight.css">
+<link rel="stylesheet" href="/css/comments.css">
+
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  <script src="/js/fancybox.js"></script>
+
   
-  <link rel="stylesheet" href="/css/style.css">
-  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
 
 </head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+<script src="/js/activeNav.js"></script>
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">Git&Github的一些资料</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2017-03-15 16:35:10
+        </span>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-Git and Github" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/15/Git and Github/" class="article-date">
-  <time datetime="2017-03-15T08:35:10.000Z" itemprop="datePublished">2017-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Git&amp;Github的一些资料
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>Git and Github</strong></p>
-<p><a href="https://www.yangzhiping.com/tech/github.html" target="_blank" rel="external">https://www.yangzhiping.com/tech/github.html</a>  阳志平 如何高效利用Github</p>
-<p><a href="http://www.runoob.com/w3cnote/git-guide.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/git-guide.html</a>  Github简明教程</p>
-<p><a href="http://www.worldhello.net/" target="_blank" rel="external">http://www.worldhello.net/</a>  Github权威指南</p>
-<p><a href="http://get.ftqq.com/?cate=1&amp;page=2&amp;new=0" target="_blank" rel="external">http://get.ftqq.com/?cate=1&amp;page=2&amp;new=0</a> Get社区</p>
-<p><a href="https://www.v2ex.com/t/313267#reply85" target="_blank" rel="external">https://www.v2ex.com/t/313267#reply85</a> github视频</p>
-<p><a href="http://www.runoob.com/git/git-remote-repo.html" target="_blank" rel="external">http://www.runoob.com/git/git-remote-repo.html</a> git远程仓库 菜鸟教程</p>
-<a id="more"></a>
-
-<p><strong>HEXO</strong></p>
-<p><a href="http://xianbai.me/learn-md/" target="_blank" rel="external">http://xianbai.me/learn-md/</a>  MD入门</p>
-<p><a href="https://www.zhihu.com/question/51588481" target="_blank" rel="external">https://www.zhihu.com/question/51588481</a>   Hexo的原理是什么？知乎</p>
-<p><a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a> 有哪些好看的hexo主题 知乎回答</p>
-<p><a href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a> hexo+github搭建个人博客</p>
-<p><a href="http://www.ahonn.me/2016/12/15/create-a-hexo-theme-from-scratch/" target="_blank" rel="external">http://www.ahonn.me/2016/12/15/create-a-hexo-theme-from-scratch/</a> 从零制作hexo主题 ahonn原创</p>
-<p><a href="http://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/" target="_blank" rel="external">http://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/</a>  create an hexo theme</p>
-<p><a href="http://notes.iissnan.com/2015/something-about-next/" target="_blank" rel="external">http://notes.iissnan.com/2015/something-about-next/</a>  next主题作者博客</p>
-<p><a href="https://www.jianshu.com/p/4fd3cb0a11da" target="_blank" rel="external">https://www.jianshu.com/p/4fd3cb0a11da</a>   我的 Github 个人博客是怎样炼成的</p>
-<p><a href="https://juejin.im/post/598eeaff5188257d592e55bb" target="_blank" rel="external">https://juejin.im/post/598eeaff5188257d592e55bb</a>  浅析Hexo博客搭建原理</p>
-<p><a href="https://zhuanlan.zhihu.com/p/26625249?utm_source=com.miui.notes&amp;utm_medium=social" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/26625249?utm_source=com.miui.notes&amp;utm_medium=social</a> Github+hexo搭建个人博客详细教程 知乎</p>
-<p><a href="https://www.cnblogs.com/chengxs/p/7496265.html" target="_blank" rel="external">https://www.cnblogs.com/chengxs/p/7496265.html</a>  搭建hexo+github系列学习 一到七</p>
-<p><a href="https://www.jianshu.com/p/f9b213097c42" target="_blank" rel="external">https://www.jianshu.com/p/f9b213097c42</a> 搭建hexo博客</p>
+      <div class="markdown-body">
+        <p><strong>HEXO</strong></p>
+<p><a href="http://xianbai.me/learn-md/">http://xianbai.me/learn-md/</a>  MD入门</p>
+<p><a href="https://www.zhihu.com/question/51588481">https://www.zhihu.com/question/51588481</a>   Hexo的原理是什么？知乎</p>
+<p><a href="http://www.zhihu.com/question/24422335">http://www.zhihu.com/question/24422335</a> 有哪些好看的hexo主题 知乎回答</p>
+<p><a href="https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">https://wenhuiyang-luck.github.io/2017/02/21/2017-02-21-HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a> hexo+github搭建个人博客</p>
+<p><a href="http://www.ahonn.me/2016/12/15/create-a-hexo-theme-from-scratch/">http://www.ahonn.me/2016/12/15/create-a-hexo-theme-from-scratch/</a> 从零制作hexo主题 ahonn原创</p>
+<p><a href="http://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/">http://www.codeblocq.com/2016/03/Create-an-Hexo-Theme-Part-1-Index/</a>  create an hexo theme</p>
+<p><a href="http://notes.iissnan.com/2015/something-about-next/">http://notes.iissnan.com/2015/something-about-next/</a>  next主题作者博客</p>
+<p><a href="https://www.jianshu.com/p/4fd3cb0a11da">https://www.jianshu.com/p/4fd3cb0a11da</a>   我的 Github 个人博客是怎样炼成的</p>
+<p><a href="https://juejin.im/post/598eeaff5188257d592e55bb">https://juejin.im/post/598eeaff5188257d592e55bb</a>  浅析Hexo博客搭建原理</p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249?utm_source=com.miui.notes&amp;utm_medium=social">https://zhuanlan.zhihu.com/p/26625249?utm_source=com.miui.notes&amp;utm_medium=social</a> Github+hexo搭建个人博客详细教程 知乎</p>
+<p><a href="https://www.cnblogs.com/chengxs/p/7496265.html">https://www.cnblogs.com/chengxs/p/7496265.html</a>  搭建hexo+github系列学习 一到七</p>
+<p><a href="https://www.jianshu.com/p/f9b213097c42">https://www.jianshu.com/p/f9b213097c42</a> 搭建hexo博客</p>
 <p>**爬虫 **</p>
-<p><a href="https://zhuanlan.zhihu.com/p/33379919" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/33379919</a> 三分钟带你学会知乎爬虫</p>
-<p><a href="https://blog.csdn.net/taonull/article/details/48054721" target="_blank" rel="external">https://blog.csdn.net/taonull/article/details/48054721</a>  PY登录微博并自动发微博</p>
-<p><a href="https://blog.csdn.net/d1240673769/article/details/74367549" target="_blank" rel="external">https://blog.csdn.net/d1240673769/article/details/74367549</a> py爬去妹纸照片</p>
-<p><a href="http://liaokeyu.com/%E6%8A%80%E6%9C%AF/2016/02/17/%E7%9B%B8%E8%A7%81%E4%B8%8D%E6%81%A8%E6%99%9A-python.html" target="_blank" rel="external">http://liaokeyu.com/%E6%8A%80%E6%9C%AF/2016/02/17/%E7%9B%B8%E8%A7%81%E4%B8%8D%E6%81%A8%E6%99%9A-python.html</a>   Python学习</p>
+<p><a href="https://zhuanlan.zhihu.com/p/33379919">https://zhuanlan.zhihu.com/p/33379919</a> 三分钟带你学会知乎爬虫</p>
+<p><a href="https://blog.csdn.net/taonull/article/details/48054721">https://blog.csdn.net/taonull/article/details/48054721</a>  PY登录微博并自动发微博</p>
+<p><a href="https://blog.csdn.net/d1240673769/article/details/74367549">https://blog.csdn.net/d1240673769/article/details/74367549</a> py爬去妹纸照片</p>
+<p><a href="http://liaokeyu.com/%E6%8A%80%E6%9C%AF/2016/02/17/%E7%9B%B8%E8%A7%81%E4%B8%8D%E6%81%A8%E6%99%9A-python.html">http://liaokeyu.com/%E6%8A%80%E6%9C%AF/2016/02/17/%E7%9B%B8%E8%A7%81%E4%B8%8D%E6%81%A8%E6%99%9A-python.html</a>   Python学习</p>
 <p>翻墙****</p>
-<p><a href="https://www.flyzy2005.cn/fan-qiang/shadowsocks/build-shadowsocks-on-vps/" target="_blank" rel="external">https://www.flyzy2005.cn/fan-qiang/shadowsocks/build-shadowsocks-on-vps/</a> 科学上网</p>
-<p><a href="http://vc2tea.com/whats-shadowsocks/" target="_blank" rel="external">http://vc2tea.com/whats-shadowsocks/</a> SSR原理</p>
+<p><a href="https://www.flyzy2005.cn/fan-qiang/shadowsocks/build-shadowsocks-on-vps/">https://www.flyzy2005.cn/fan-qiang/shadowsocks/build-shadowsocks-on-vps/</a> 科学上网</p>
+<p><a href="http://vc2tea.com/whats-shadowsocks/">http://vc2tea.com/whats-shadowsocks/</a> SSR原理</p>
 <p>**注册Gmail **</p>
-<p><a href="https://www.zhihu.com/question/34834773" target="_blank" rel="external">https://www.zhihu.com/question/34834773</a> 注册 Gmail，验证手机号码的时候提示“此号码不能用于验证”，怎么解决？</p>
+<p><a href="https://www.zhihu.com/question/34834773">https://www.zhihu.com/question/34834773</a> 注册 Gmail，验证手机号码的时候提示“此号码不能用于验证”，怎么解决？</p>
 <p><strong>其他资源</strong></p>
-<p><a href="https://stackoverflow.com/questions/ask/advice" target="_blank" rel="external">https://stackoverflow.com/questions/ask/advice</a>? 如果问别人问题?</p>
-<p><a href="https://github.com/geekcompany/ResumeSample" target="_blank" rel="external">https://github.com/geekcompany/ResumeSample</a> 程序员简历模板</p>
-<p><a href="https://cnodejs.org/topic/56ef3edd532839c33a99d00e%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E6%95%99%E7%A8%8B" target="_blank" rel="external">https://cnodejs.org/topic/56ef3edd532839c33a99d00e前端资源教程</a></p>
-<p><a href="http://www.runoob.com/w3cnote/wx-xcx-repo.html" target="_blank" rel="external">http://www.runoob.com/w3cnote/wx-xcx-repo.html</a> 小程序开发资源汇总 </p>
-<p><a href="https://www.zhihu.com/topic/19561686/top-answers" target="_blank" rel="external">https://www.zhihu.com/topic/19561686/top-answers</a>  技术博客话题 知乎</p>
-
+<p><a href="https://stackoverflow.com/questions/ask/advice">https://stackoverflow.com/questions/ask/advice</a>? 如果问别人问题?</p>
+<p><a href="https://github.com/geekcompany/ResumeSample">https://github.com/geekcompany/ResumeSample</a> 程序员简历模板</p>
+<p><a href="https://cnodejs.org/topic/56ef3edd532839c33a99d00e%E5%89%8D%E7%AB%AF%E8%B5%84%E6%BA%90%E6%95%99%E7%A8%8B">https://cnodejs.org/topic/56ef3edd532839c33a99d00e前端资源教程</a></p>
+<p><a href="http://www.runoob.com/w3cnote/wx-xcx-repo.html">http://www.runoob.com/w3cnote/wx-xcx-repo.html</a> 小程序开发资源汇总 </p>
+<p><a href="https://www.zhihu.com/topic/19561686/top-answers">https://www.zhihu.com/topic/19561686/top-answers</a>  技术博客话题 知乎</p>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2017/03/15/boke/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2017-03-15 16:35:10
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/03/18/second - 副本/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/15/Git and Github/" data-id="cl1020bku0001lgivpxzat920" class="article-share-link">Share</a>
+    
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        <div class="footer">
+  <div class="social">
+    <ul>
       
+        <li>
+          <a title="github" href="https://github.com/zchengsite/hexo-theme-oranges">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
       
-    </footer>
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="rss" href="/atom.xml">
+            <i class="iconfont icon-rss"></i>
+          </a>
+        </li>
+      
+    </ul>
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2022/03/18/second - 副本/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+    <div class="footer-more">
+      
+        <a href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © Oranges 2021</a>
         
-          In&amp;Out
+    </div>
+  
+    <div class="footer-more">
+      
+        <a href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+<script src="/js/backtotop.js"></script>
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  <script src="/js/colorscheme.js"></script>
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Git%26Github%E7%9A%84%E4%B8%80%E4%BA%9B%E8%B5%84%E6%96%99 + '&url=' + http%3A%2F%2Fyoursite.com%2F2017%2F03%2F15%2FGit%20and%20Github%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2017/03/15/Git and Github/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
         
       </div>
-    </a>
-  
-  
-    <a href="/2017/03/15/boke/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">一些杰出的个人博客和网站</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
-  </div>
-
-
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/03/19/hexo插入图片/">hexo插入图片</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/19/aaa/">aaa</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/18/second - 副本/">In&amp;Out</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/Git and Github/">Git&amp;Github的一些资料</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/15/boke/">一些杰出的个人博客和网站</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+  <script src="/js/shares.js"></script>
 
-  
-</aside>
-        
+
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
+  </body>
 </html>
