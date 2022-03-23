@@ -11,7 +11,7 @@
   
   <title>
     
-      hexo插入本地图片 
+      nps搭建内网穿透 
       
       
       |
@@ -127,59 +127,72 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">hexo插入本地图片</div>
+      <div class="post-title">nps搭建内网穿透</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2022-03-19 10:52:44
+          2022-03-23 15:12:33
         </span>
         
       </div>
       <div class="markdown-body">
-        <h1 id="Hexo使用Github-pages文章插入图片问题"><a href="#Hexo使用Github-pages文章插入图片问题" class="headerlink" title="Hexo使用Github pages文章插入图片问题"></a>Hexo使用Github pages文章插入图片问题</h1><p>搭建一个博客以后</p>
-<p>主要的目的还是用来写文章，对于一个程序员来说，一篇文章的主要内容便是文字，代码和图片，实际上文字和代码md本身就解决了，所见即所得。图片的解决自己之前也了解过比如把图片上传到第三方图床上，引用图片的绝对地址。</p>
-<p>很长一段时间自己使用typecho对hexo基本上没使用，这个上传图片的基本问题也没有得到解决，直到自己的Typecho博客因为没有续费域名和服务器挂掉以后。自己意识到</p>
-<p><strong>免费的真香</strong>。</p>
-<p><strong>同时自己又有了折腾的动力</strong>。</p>
-<p>自己开始重新思考这个问题。</p>
-<h1 id="HEXO文章如何插入本地图片"><a href="#HEXO文章如何插入本地图片" class="headerlink" title="HEXO文章如何插入本地图片"></a>HEXO文章如何插入本地图片</h1><h2 id="文章插入图片"><a href="#文章插入图片" class="headerlink" title="文章插入图片"></a>文章插入图片</h2><p>第三方图床不用说了，主要说说hexo插入本地图片，本地在编辑文章插入图片的时候需要操作简单，能实时看到文章效果，文章效果和本地生成的静态网页一样。</p>
-<p>在hexo中使用<strong>文章资源文件夹</strong>需要在<code>config.yaml</code>文件中更改一下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
+        <h2 id="nps搭建内网穿透"><a href="#nps搭建内网穿透" class="headerlink" title="nps搭建内网穿透"></a>nps搭建内网穿透</h2><p>nps在github的地址为 <a href="https://github.com/ehang-io/nps">https://github.com/ehang-io/nps</a></p>
+<p>nps的功能非常的强大，能实现下面这些功能</p>
+<ol>
+<li>做微信公众号开发、小程序开发等—-&gt; 域名代理模式</li>
+<li>想在外网通过ssh连接内网的机器，做云服务器到内网服务器端口的映射，—-&gt; tcp代理模式</li>
+<li>在非内网环境下使用内网dns，或者需要通过udp访问内网机器等—-&gt; udp代理模式</li>
+<li>在外网使用HTTP代理访问内网站点—-&gt; http代理模式</li>
+<li>搭建一个内网穿透ss，在外网如同使用内网vpn一样访问内网资源或者设备—-&gt; socks5代理模式</li>
+</ol>
+<p>想着学习一下于是尝试用nps搭建一个内网穿透的工具，因为开放中常用到内网穿透用于项目的演示或则第三方的一些接口调用，比如做微信小程序或则公众号开发的时候。整个搭建的过程比较简单如下</p>
+<h3 id="一、基本条件"><a href="#一、基本条件" class="headerlink" title="一、基本条件"></a>一、基本条件</h3><p>需要一台公网的服务器，用来做代理<strong>“转发请求”</strong> </p>
+<h3 id="二、在服务器上安装好nps的server端"><a href="#二、在服务器上安装好nps的server端" class="headerlink" title="二、在服务器上安装好nps的server端"></a>二、在服务器上安装好nps的server端</h3><p>1.我这里使用的windows server 64位的服务器，下载server端到服务器，解压后，</p>
+<p>2.开放服务器端口，在服务器的安全组里开放80&#x2F;443&#x2F;8080&#x2F;8042端口</p>
+<p>nps默认配置文件使用了80，443，8080，8024端口</p>
+<p>80与443端口为域名解析模式默认端口</p>
+<p>8080为web管理访问端口</p>
+<p>8024为网桥端口，用于客户端与服务器通信</p>
+<p>自己也可以根据需要更改为其他端口</p>
+<p>3.修改配置修改管理网页端的用户名和密码，在conf&#x2F;nps.conf文件中修改web_username、web_password为自己的用户名和密码，webhost设置为自己的IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#web</div><div class="line">web_host=ipaddress</div><div class="line">web_username=admin</div><div class="line">web_password=123+1s</div><div class="line">web_port = 8080</div><div class="line">web_ip=0.0.0.0</div><div class="line">web_base_url=</div><div class="line">web_open_ssl=false</div><div class="line">web_cert_file=conf/server.pem</div><div class="line">web_key_file=conf/server.key</div><div class="line"># if web under proxy use sub path. like http://host/nps need this.</div><div class="line">#web_base_url=/nps</div></pre></td></tr></table></figure>
 
-<p>当该配置被应用后，使用<code>hexo new</code>命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
-<p>这个时候把图片放到文章所在的同名文件夹下，就可以使用下面的MD语法进行引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](文章同名文件夹/xxx.jpg)</div></pre></td></tr></table></figure>
+<p>4.进入到nps的解压后的文件夹windows_amd64_server下打开cmd</p>
+<p>输入 <code>nps.exe install</code>。系统会将nps文件copy至<code>C:\Program Files\nps</code></p>
+<p>5.启动nps服务器端</p>
+<p>cmd下启动、停止和重启分别为: <code>nps.exe start</code>、<code>nps stop</code>和<code>nps restart</code></p>
+<p>在客户端目录下进入cmd输入<code>nps.exe start</code>启动</p>
+<p> 输入web_host+web_port访问页面操作的后台，输入自己配置用户名密码登陆</p>
+<p>6 .添加客户端</p>
+<p>在客户端菜单下添加客户端保存，在客户端列表里面就可以看到客户端以及客户端的验证密钥了。（本步主要是在服务器端生成一个客户端的验证密钥，客户端配置好这个密钥以后，客户端和服务器端进行通信）</p>
+<img src="/2022/03/23/nps搭建内网穿透/image-20220323143623419-1648019689458.png" alt="image-20220323143623419" title="image-20220323143623419">
 
-<p>使用上面的方法hexo g生成本地静态页面以后，静态页面无法加载出图片，静态页面和图片在同一级目录下面。</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321135808065.png" alt="image-20220321135808065" title="image-20220321135808065">
+
+
+<p>由于客户端还没有建立连接可以看到客户端的状态是离线的</p>
+<p><strong>注意: linux的安装也是比较简单的可参照官方文档</strong> </p>
+<h3 id="三、安装客户端"><a href="#三、安装客户端" class="headerlink" title="三、安装客户端"></a>三、安装客户端</h3><p>1.在自己电脑上安装服务端，下载客户端的安装包windows_amd64_client </p>
+<p>2.解压后修改客户端conf文件夹下配置文件npc.conf，主要修改server_addr和vkey</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">server_addr=服务器端IP:8024</div><div class="line">vkey=客户端密钥</div></pre></td></tr></table></figure>
+
+<p>让客户端和服务端能建立连接</p>
+<p>3.运行客户端</p>
+<p>在客户端目录中双击npc.exe , 成功后可以在服务端后台页面刷新可以看到客户端已经在线</p>
+<h3 id="四、内网穿透"><a href="#四、内网穿透" class="headerlink" title="四、内网穿透"></a>四、内网穿透</h3><p>这里想要实现内网穿透，在外网访问一台电脑上本地运行locahost。服务端网页管理菜单 <strong>TCP隧道</strong>下新建一条记录配置好客户端ID（在客户端列表里可以看到），用来访问的服务器端口以及本地的网页的ip和端口</p>
+<img src="/2022/03/23/nps搭建内网穿透/image-20220323145756086-1648019689462.png" alt="image-20220323145756086" title="image-20220323145756086">
 
 
 
-<p>显然这样不行，于是在网上搜索**”hexo如何上传本地图片”**，看到很多文章都写的是安装一个叫做hexo-asset-image的插件，自己安装了还是不行，在网上搜索了好半天还去群里问了别人还是不行。</p>
-<p><strong>当一个问题找不到答案的时候就去官网把官方文档多看几遍</strong> </p>
-<p>下面文档来自hexo中官网  <a href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p>
-<blockquote>
-<h2 id="Embedding-an-image-using-markdown"><a href="#Embedding-an-image-using-markdown" class="headerlink" title="Embedding an image using markdown"></a>Embedding an image using markdown</h2><p><a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 introduced a new option that allows you to embed an image in markdown without using <code>asset_img</code> tag plugin.</p>
-<p>To enable:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;_config.ymlpost_asset_folder: true</div><div class="line">&gt;marked:</div><div class="line">&gt;  prependRoot: true</div><div class="line">&gt;  postAsset: true</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>Once enabled, an asset image will be automatically resolved to its corresponding post’s path. For example, “image.jpg” is located at “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”, meaning it is an asset image of “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;“ post, <code>![](image.jpg)</code> will be rendered as  &lt;img src&#x3D;”&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”&gt;.</p>
-</blockquote>
-<p>安装<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 这个插件，修改下hexo配置文件，重新生成本地预览， 图片就可以正常访问了</p>
-<p>解决了编辑的时候是看到效果， 并且编辑时看到的效果和网页生成的是一样的</p>
-<p>但是这样本地编辑还是不太方便，需要把图片复制到对应的文件夹再去编辑文章，有没有一种方法直接在编辑器里面编辑图片的时候图片就传到对应目录下呢。</p>
-<h2 id="文章图片编辑"><a href="#文章图片编辑" class="headerlink" title="文章图片编辑"></a>文章图片编辑</h2><p>还真有，不得不说Typora这个编辑器很厉害，在<strong>文件—偏好设置—图像—插入图像</strong> 下设置，复制到指定路径，这里可以勾选对本地和网络位置应用上诉规则以及优先使用先对路径。如下图</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321141106886.png" alt="image-20220321141106886" title="image-20220321141106886">
-
-<p>这里设置了以后直接复制图片(本地图片、使用截图工具截取的图片、网络图片)到编辑器里面就可以实现图片复制文章同名的文件夹下，并且编辑器里能实时看到效果，如果没有文章同名的文件夹会自动创建   。</p>
+<p>添加了TCP代理以后就可以使用公网ip:8080替换本地电脑上的localhost了</p>
+<p>如果你本地运行网页是localhost&#x2F;hello.html</p>
+<p>公网的访问地址为ip:8080&#x2F;hello.html</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2017/03/15/Git and Github/" target="_self">
+              <a href="/2022/03/21/如何搭建hexo博客/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>zurück</span>
               </a>
@@ -188,16 +201,11 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2022-03-19 10:52:44
+              2022-03-23 15:12:33
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2022/03/21/如何搭建hexo博客/" target="_self">
-                <span>weiter</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -210,7 +218,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Content</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo使用Github-pages文章插入图片问题"><span class="toc-text">Hexo使用Github pages文章插入图片问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO文章如何插入本地图片"><span class="toc-text">HEXO文章如何插入本地图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章插入图片"><span class="toc-text">文章插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding-an-image-using-markdown"><span class="toc-text">Embedding an image using markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章图片编辑"><span class="toc-text">文章图片编辑</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nps搭建内网穿透"><span class="toc-text">nps搭建内网穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、基本条件"><span class="toc-text">一、基本条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、在服务器上安装好nps的server端"><span class="toc-text">二、在服务器上安装好nps的server端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、安装客户端"><span class="toc-text">三、安装客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、内网穿透"><span class="toc-text">四、内网穿透</span></a></li></ol></li></ol>
     </div>
   </div>
 
@@ -521,12 +529,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + hexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87 + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F03%2F19%2Fhexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + nps%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F03%2F23%2Fnps%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/03/19/hexo插入本地图片/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/03/23/nps搭建内网穿透/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
