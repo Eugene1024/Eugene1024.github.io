@@ -11,11 +11,6 @@
   
   <title>
     
-      hexo插入本地图片 
-      
-      
-      |
-    
      Hexo
   </title>
 
@@ -127,59 +122,28 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">hexo插入本地图片</div>
+      <div class="post-title"></div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2022-03-19 10:52:44
+          2023-03-31 15:16:07
         </span>
         
       </div>
       <div class="markdown-body">
-        <h1 id="Hexo使用Github-pages文章插入图片问题"><a href="#Hexo使用Github-pages文章插入图片问题" class="headerlink" title="Hexo使用Github pages文章插入图片问题"></a>Hexo使用Github pages文章插入图片问题</h1><p>搭建一个博客以后</p>
-<p>主要的目的还是用来写文章，对于一个程序员来说，一篇文章的主要内容便是文字，代码和图片，实际上文字和代码md本身就解决了，所见即所得。图片的解决自己之前也了解过比如把图片上传到第三方图床上，引用图片的绝对地址。</p>
-<p>很长一段时间自己使用typecho对hexo基本上没使用，这个上传图片的基本问题也没有得到解决，直到自己的Typecho博客因为没有续费域名和服务器挂掉以后。自己意识到</p>
-<p><strong>免费的真香</strong>。</p>
-<p><strong>同时自己又有了折腾的动力</strong>。</p>
-<p>自己开始重新思考这个问题。</p>
-<h1 id="HEXO文章如何插入本地图片"><a href="#HEXO文章如何插入本地图片" class="headerlink" title="HEXO文章如何插入本地图片"></a>HEXO文章如何插入本地图片</h1><h2 id="文章插入图片"><a href="#文章插入图片" class="headerlink" title="文章插入图片"></a>文章插入图片</h2><p>第三方图床不用说了，主要说说hexo插入本地图片，本地在编辑文章插入图片的时候需要操作简单，能实时看到文章效果，文章效果和本地生成的静态网页一样。</p>
-<p>在hexo中使用<strong>文章资源文件夹</strong>需要在<code>config.yaml</code>文件中更改一下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-
-<p>当该配置被应用后，使用<code>hexo new</code>命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
-<p>这个时候把图片放到文章所在的同名文件夹下，就可以使用下面的MD语法进行引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](文章同名文件夹/xxx.jpg)</div></pre></td></tr></table></figure>
-
-<p>使用上面的方法hexo g生成本地静态页面以后，静态页面无法加载出图片，静态页面和图片在同一级目录下面。</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321135808065.png" alt="image-20220321135808065" title="image-20220321135808065">
-
-
-
-<p>显然这样不行，于是在网上搜索**”hexo如何上传本地图片”**，看到很多文章都写的是安装一个叫做hexo-asset-image的插件，自己安装了还是不行，在网上搜索了好半天还去群里问了别人还是不行。</p>
-<p><strong>当一个问题找不到答案的时候就去官网把官方文档多看几遍</strong> </p>
-<p>下面文档来自hexo中官网  <a href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p>
-<blockquote>
-<h2 id="Embedding-an-image-using-markdown"><a href="#Embedding-an-image-using-markdown" class="headerlink" title="Embedding an image using markdown"></a>Embedding an image using markdown</h2><p><a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 introduced a new option that allows you to embed an image in markdown without using <code>asset_img</code> tag plugin.</p>
-<p>To enable:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;_config.ymlpost_asset_folder: true</div><div class="line">&gt;marked:</div><div class="line">&gt;  prependRoot: true</div><div class="line">&gt;  postAsset: true</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>Once enabled, an asset image will be automatically resolved to its corresponding post’s path. For example, “image.jpg” is located at “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”, meaning it is an asset image of “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;“ post, <code>![](image.jpg)</code> will be rendered as  &lt;img src&#x3D;”&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”&gt;.</p>
-</blockquote>
-<p>安装<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 这个插件，修改下hexo配置文件，重新生成本地预览， 图片就可以正常访问了</p>
-<p>解决了编辑的时候是看到效果， 并且编辑时看到的效果和网页生成的是一样的</p>
-<p>但是这样本地编辑还是不太方便，需要把图片复制到对应的文件夹再去编辑文章，有没有一种方法直接在编辑器里面编辑图片的时候图片就传到对应目录下呢。</p>
-<h2 id="文章图片编辑"><a href="#文章图片编辑" class="headerlink" title="文章图片编辑"></a>文章图片编辑</h2><p>还真有，不得不说Typora这个编辑器很厉害，在<strong>文件—偏好设置—图像—插入图像</strong> 下设置，复制到指定路径，这里可以勾选对本地和网络位置应用上诉规则以及优先使用先对路径。如下图</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321141106886.png" alt="image-20220321141106886" title="image-20220321141106886">
-
-<p>这里设置了以后直接复制图片(本地图片、使用截图工具截取的图片、网络图片)到编辑器里面就可以实现图片复制文章同名的文件夹下，并且编辑器里能实时看到效果，如果没有文章同名的文件夹会自动创建   。</p>
+        <h1 id="普通人眼里的犹豫、拖延和意识"><a href="#普通人眼里的犹豫、拖延和意识" class="headerlink" title="普通人眼里的犹豫、拖延和意识"></a>普通人眼里的犹豫、拖延和意识</h1><p>普通人为什么会犹豫和拖延，今天突然思考到这个问题。</p>
+<p>突然想起小时候，老师布置的作业平时怎么也不会做，一定要等到时间过着过着明天开始上课了才挑灯夜战补作业。思考了下最后补作业的原因：没有紧迫感，也不是让自己快乐的事。就这样平时肯定玩优先级是最高的，过着过着时间就快到开学上课了。</p>
+<p>想到现在的自己有时候也拖延，确实也上上面的差不多，自己上班都够累了，不想再去做一些其他的费神的事。对于拖延好的状态是比较重要的，自己有一定的精力去面对，当然成年人精力有限，每天的事情比较多，所以在干其他事情的时候可以思考下高效或则放松是对自己保持精力是有所帮助的。</p>
+<p>犹豫，面对选择的时候犹豫，就像买两件衣服哪一件好看，这件衣服到底买不买，犹豫是由于自己判断不了哪一个更有价值产生的，所以知道一些基本的判断规则，切实的考虑自身利益，听取周围的聪明人的意见都是非常重要的。同时自己也需要有一定的感知能力。当一个人在一个地方待久了会出现思维僵化，当一个人和别人交流的少的时候，思想意见也会局限，感知能力也可能会下降。</p>
+<p>普通人意识的提升</p>
+<p>普通人能力是可以通过刻意练习提升的，但是意识是很难去提升了，比如在低位还是高位买房，普通人是很难去理性思考的，通常考虑的是自己的需求，自己需要一个房子，但如果在低位买房，生活可能会少奋斗几十年。大部分普通人信息渠道都很窄，来自自己的经历和自己身边的亲朋好友，当做一些关键性决策，做决策的人不太懂，并且周围也没有一个聪明人的时候，那么选错的概率是非常大的。对于小地方的人多交交些聪明的朋友，或则认识一些年长又有经验的长辈有时候和他们交流下也是非常有帮助的。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2017/03/15/Git and Github/" target="_self">
+              <a href="/2022/03/23/nps搭建内网穿透/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>zurück</span>
               </a>
@@ -188,16 +152,11 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2022-03-19 10:52:44
+              2023-03-31 15:16:07
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2022/03/21/hexo博客基本原理/" target="_self">
-                <span>weiter</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -210,7 +169,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Content</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo使用Github-pages文章插入图片问题"><span class="toc-text">Hexo使用Github pages文章插入图片问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO文章如何插入本地图片"><span class="toc-text">HEXO文章如何插入本地图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章插入图片"><span class="toc-text">文章插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding-an-image-using-markdown"><span class="toc-text">Embedding an image using markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章图片编辑"><span class="toc-text">文章图片编辑</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#普通人眼里的犹豫、拖延和意识"><span class="toc-text">普通人眼里的犹豫、拖延和意识</span></a></li></ol>
     </div>
   </div>
 
@@ -521,12 +480,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + hexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87 + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F03%2F19%2Fhexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' +  + '&url=' + http%3A%2F%2Fyoursite.com%2F2023%2F03%2F31%2F%E6%99%AE%E9%80%9A%E4%BA%BA%E7%9C%BC%E9%87%8C%E7%9A%84%E7%8A%B9%E8%B1%AB%E3%80%81%E6%8B%96%E5%BB%B6%E5%92%8C%E6%84%8F%E8%AF%86%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/03/19/hexo插入本地图片/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2023/03/31/普通人眼里的犹豫、拖延和意识/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

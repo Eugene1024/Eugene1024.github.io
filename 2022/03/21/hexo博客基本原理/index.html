@@ -11,7 +11,7 @@
   
   <title>
     
-      hexo插入本地图片 
+      如何搭建hexo博客 
       
       
       |
@@ -127,59 +127,53 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">hexo插入本地图片</div>
+      <div class="post-title">如何搭建hexo博客</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2022-03-19 10:52:44
+          2022-03-21 15:02:48
         </span>
         
       </div>
       <div class="markdown-body">
-        <h1 id="Hexo使用Github-pages文章插入图片问题"><a href="#Hexo使用Github-pages文章插入图片问题" class="headerlink" title="Hexo使用Github pages文章插入图片问题"></a>Hexo使用Github pages文章插入图片问题</h1><p>搭建一个博客以后</p>
-<p>主要的目的还是用来写文章，对于一个程序员来说，一篇文章的主要内容便是文字，代码和图片，实际上文字和代码md本身就解决了，所见即所得。图片的解决自己之前也了解过比如把图片上传到第三方图床上，引用图片的绝对地址。</p>
-<p>很长一段时间自己使用typecho对hexo基本上没使用，这个上传图片的基本问题也没有得到解决，直到自己的Typecho博客因为没有续费域名和服务器挂掉以后。自己意识到</p>
-<p><strong>免费的真香</strong>。</p>
-<p><strong>同时自己又有了折腾的动力</strong>。</p>
-<p>自己开始重新思考这个问题。</p>
-<h1 id="HEXO文章如何插入本地图片"><a href="#HEXO文章如何插入本地图片" class="headerlink" title="HEXO文章如何插入本地图片"></a>HEXO文章如何插入本地图片</h1><h2 id="文章插入图片"><a href="#文章插入图片" class="headerlink" title="文章插入图片"></a>文章插入图片</h2><p>第三方图床不用说了，主要说说hexo插入本地图片，本地在编辑文章插入图片的时候需要操作简单，能实时看到文章效果，文章效果和本地生成的静态网页一样。</p>
-<p>在hexo中使用<strong>文章资源文件夹</strong>需要在<code>config.yaml</code>文件中更改一下配置：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></div></pre></td></tr></table></figure>
-
-<p>当该配置被应用后，使用<code>hexo new</code>命令创建新文章时，会生成相同名字的文件夹，也就是文章资源文件夹。</p>
-<p>这个时候把图片放到文章所在的同名文件夹下，就可以使用下面的MD语法进行引用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![](文章同名文件夹/xxx.jpg)</div></pre></td></tr></table></figure>
-
-<p>使用上面的方法hexo g生成本地静态页面以后，静态页面无法加载出图片，静态页面和图片在同一级目录下面。</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321135808065.png" alt="image-20220321135808065" title="image-20220321135808065">
-
-
-
-<p>显然这样不行，于是在网上搜索**”hexo如何上传本地图片”**，看到很多文章都写的是安装一个叫做hexo-asset-image的插件，自己安装了还是不行，在网上搜索了好半天还去群里问了别人还是不行。</p>
-<p><strong>当一个问题找不到答案的时候就去官网把官方文档多看几遍</strong> </p>
-<p>下面文档来自hexo中官网  <a href="https://hexo.io/zh-cn/docs/asset-folders">https://hexo.io/zh-cn/docs/asset-folders</a></p>
-<blockquote>
-<h2 id="Embedding-an-image-using-markdown"><a href="#Embedding-an-image-using-markdown" class="headerlink" title="Embedding an image using markdown"></a>Embedding an image using markdown</h2><p><a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 3.1.0 introduced a new option that allows you to embed an image in markdown without using <code>asset_img</code> tag plugin.</p>
-<p>To enable:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt;_config.ymlpost_asset_folder: true</div><div class="line">&gt;marked:</div><div class="line">&gt;  prependRoot: true</div><div class="line">&gt;  postAsset: true</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>Once enabled, an asset image will be automatically resolved to its corresponding post’s path. For example, “image.jpg” is located at “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”, meaning it is an asset image of “&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;“ post, <code>![](image.jpg)</code> will be rendered as  &lt;img src&#x3D;”&#x2F;2020&#x2F;01&#x2F;02&#x2F;foo&#x2F;image.jpg”&gt;.</p>
-</blockquote>
-<p>安装<a href="https://github.com/hexojs/hexo-renderer-marked">hexo-renderer-marked</a> 这个插件，修改下hexo配置文件，重新生成本地预览， 图片就可以正常访问了</p>
-<p>解决了编辑的时候是看到效果， 并且编辑时看到的效果和网页生成的是一样的</p>
-<p>但是这样本地编辑还是不太方便，需要把图片复制到对应的文件夹再去编辑文章，有没有一种方法直接在编辑器里面编辑图片的时候图片就传到对应目录下呢。</p>
-<h2 id="文章图片编辑"><a href="#文章图片编辑" class="headerlink" title="文章图片编辑"></a>文章图片编辑</h2><p>还真有，不得不说Typora这个编辑器很厉害，在<strong>文件—偏好设置—图像—插入图像</strong> 下设置，复制到指定路径，这里可以勾选对本地和网络位置应用上诉规则以及优先使用先对路径。如下图</p>
-<img src="/2022/03/19/hexo插入本地图片/image-20220321141106886.png" alt="image-20220321141106886" title="image-20220321141106886">
-
-<p>这里设置了以后直接复制图片(本地图片、使用截图工具截取的图片、网络图片)到编辑器里面就可以实现图片复制文章同名的文件夹下，并且编辑器里能实时看到效果，如果没有文章同名的文件夹会自动创建   。</p>
+        <h3 id="why-hexo"><a href="#why-hexo" class="headerlink" title="why  hexo"></a>why  hexo</h3><p>免费，简单可以个性化操作。</p>
+<h3 id="静态网站基本知识"><a href="#静态网站基本知识" class="headerlink" title="静态网站基本知识"></a>静态网站基本知识</h3><p><strong>html</strong></p>
+<p>超文本标记语言，实际上就是人们说的程序代码，使用浏览器打开或则访问就能看到平时上网看到的网页。</p>
+<p><strong>浏览器</strong> </p>
+<p><strong>web服务器</strong></p>
+<p>用来处理用户发起的请求，比如用户在浏览器访问登录页面，就把登录页面响应显示给用户，用户访问百度首页输入<a href="http://www.baidu.com,就把百度的网页响应显示给用户./">www.baidu.com，就把百度的网页响应显示给用户。</a></p>
+<p><strong>一个人在浏览器输入一串网站地址为什么能访问到网页（html页面）？</strong> </p>
+<p>一个人在浏览器输入了网站的地址，实际上是web服务器程序的地址，回车后，请求会发送到web服务器，web服务器的根据请求响应。</p>
+<p>这里面比较重要的是web服务器用来接受请求并且响应请求，web服务器上程序也非常重要，用来真正处理请求和响应，对于静态网站来说程序就是html。</p>
+<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><p>Github是什么？</p>
+<p>Github可以看作一个公共网盘，每一个公共的仓库就相当于一个对外开放的文件夹，人们对这个公共的文件夹(仓库)可以查看内容、下载、并且下载这个内容后添加一些新的功能等等(更多功能请阅读Github文档)。</p>
+<p>Github提供了一个功能Github pages ，仓库开启以后可以让一个仓库（公共的文件夹）变成一个web服务器，人们可以直接通过一串Github的地址访问到仓库下面的html文件页面。</p>
+<p>由于github pages设置了以后可以使仓库当做静态网站的web服务器，你自己编写的HMTL也可以上传到github的该仓库下让其他人访问到。</p>
+<p>这里我遇到过一个比较有意思的项目，一个是一个男生做的一个静态网页，记录和他女朋友在一起的难忘的记忆，他希望上传到github，可怎么也无法上传，实际上这里只用到了git和github的功能，我帮助他完成了上传配置了域名解析。</p>
+<p> 静态网页可以做很多事，可以用来做个人博客，也可以用来制作自己的网页简历，还可以用来制作项目介绍等等。</p>
+<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><p>Git是一个版本管理工具，可以用来做<strong>版本管理，上传工具，团队协作，Devops</strong> </p>
+<p><strong>版本管理</strong></p>
+<p>传统的版本管理，一个项目完成一个功能存一个档，并且还要写好说明，并且不同版本之间的比对还非常麻烦。整个操作比较麻烦。</p>
+<p>git版本管理 简单来说，就是你在写代码或则写文章的时候完成一个功能或则写了比较长的一段后，可以拍一张快照存档，这个存档就是一个版本，你在编写开始的时候也可以存一个版本，这样做的好处是当你在完成某个步骤的时候覆盖或则修改了原来的代码和文章，覆盖和修改完以后发现这样做错了，想倒退回去。</p>
+<p>这个时候想Ctrl+z可不行，修改已经太多了，可能保存了很多次，这个时候就可以用git命令使用快照功能，整个项目或则整片文章回退到覆盖和修改前，还能比较不同版本之间发生了那些具体变化，思考整个项目或则文章的构建。</p>
+<p>这基本上就是git版本控制的核心思想。</p>
+<p><strong>上传工具</strong> </p>
+<p>上传工具，可以使用git把代码上传到某个仓库下</p>
+<p>团队协作和devolop这里就不介绍了。后面专门写篇的文章介绍，搭建hexo博客里面主要用到了git的上传功能。</p>
+<h3 id="Markdown文件"><a href="#Markdown文件" class="headerlink" title="Markdown文件"></a>Markdown文件</h3><p>Hexo主要使用Markdown来编写文章。</p>
+<p>Markdown是一种文件格式也是一种语法风格，使用Markdown语法编写的文件保存后就是后缀为MD的Markdown文件。</p>
+<p>听着有点抽象，实际上是和word是类似的，通常我们用word来写文章，就是打开word编辑器，编写最后保存为.word的文件，Markdown也是一样的，打开Markdown编写文章，最后保存为.md的文件，不过是换了一种文件格式，编辑的时候菜单有些不一样。</p>
+<p>为什么选择Markdown不选择word来编写文件呢？</p>
+<p>对于技术人员来说Markdwon更简单和美观，Markdown编写的文件能更方便的转换为网页 —   <strong>Hexo</strong> </p>
+<h3 id="Hexo的基本原理"><a href="#Hexo的基本原理" class="headerlink" title="Hexo的基本原理"></a>Hexo的基本原理</h3><p>hexo是一个静态网页博客框架，hexo实际上就是将编写的md文件生成浏览器可以直接显示的html文件</p>
+<p>将Hexo生成的html文件传到一个公共的web服务器上，大家都能访问到的话，这样就成了一个网站。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2017/03/15/Git and Github/" target="_self">
+              <a href="/2022/03/19/hexo插入本地图片/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>zurück</span>
               </a>
@@ -188,13 +182,13 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2022-03-19 10:52:44
+              2022-03-21 15:02:48
             </span>
             
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2022/03/21/hexo博客基本原理/" target="_self">
+              <a href="/2022/03/23/nps搭建内网穿透/" target="_self">
                 <span>weiter</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -210,7 +204,7 @@ MathJax = {
   <div class="post-catalog hidden" id="catalog">
     <div class="title">Content</div>
     <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo使用Github-pages文章插入图片问题"><span class="toc-text">Hexo使用Github pages文章插入图片问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO文章如何插入本地图片"><span class="toc-text">HEXO文章如何插入本地图片</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#文章插入图片"><span class="toc-text">文章插入图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Embedding-an-image-using-markdown"><span class="toc-text">Embedding an image using markdown</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文章图片编辑"><span class="toc-text">文章图片编辑</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#why-hexo"><span class="toc-text">why  hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态网站基本知识"><span class="toc-text">静态网站基本知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github"><span class="toc-text">Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Markdown文件"><span class="toc-text">Markdown文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo的基本原理"><span class="toc-text">Hexo的基本原理</span></a></li></ol>
     </div>
   </div>
 
@@ -521,12 +515,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + hexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87 + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F03%2F19%2Fhexo%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2 + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F03%2F21%2Fhexo%E5%8D%9A%E5%AE%A2%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/03/19/hexo插入本地图片/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/03/21/hexo博客基本原理/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
