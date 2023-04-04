@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2023/3 
+      静态代理模式 
       
       
       |
@@ -99,116 +99,108 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2023</span>
-          </h2>
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">静态代理模式</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime" title="Update time"></i>
+          2022-04-04 15:02:48
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h1 id="静态代理模式"><a href="#静态代理模式" class="headerlink" title="静态代理模式"></a>静态代理模式</h1><p>结婚接口：有个结婚的方法</p>
+<p>你：真实角色</p>
+<p>婚庆公司：代理你实现结婚</p>
+<p>真实对象和代理对象都实现结婚接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">public class StaticProxy &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        WeddingCompany weddingCompany = new WeddingCompany(new You());</div><div class="line">        weddingCompany.happyMarry();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">interface Marry &#123;</div><div class="line">    void happyMarry();</div><div class="line">&#125;</div><div class="line"></div><div class="line">class You implements Marry &#123;</div><div class="line">    @Override</div><div class="line">    public void happyMarry() &#123;</div><div class="line">        System.out.println(&quot;本人结婚了！&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class WeddingCompany implements Marry &#123;</div><div class="line">    private Marry marry;</div><div class="line"></div><div class="line">    public WeddingCompany(Marry marry) &#123;</div><div class="line">        this.marry = marry;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void happyMarry() &#123;</div><div class="line">        System.out.println(&quot;结婚前的操作！&quot;);</div><div class="line">        this.marry.happyMarry();</div><div class="line">        System.out.println(&quot;结婚后的操作！&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">结婚前的操作！</div><div class="line">本人结婚了！</div><div class="line">结婚后的操作！</div></pre></td></tr></table></figure>
+
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><p>代理对象可以做比真实对象更多的事</p>
+<p>真实对象只关注自己的事</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/03/31/普通人眼里的犹豫拖延和意识/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime" title="Update time"></i>
+              2022-04-04 15:02:48
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="">
-        <div class="time-m-d">03-31</div>
-        <div class="title">
-          <a href="/2023/03/31/普通人眼里的犹豫拖延和意识/">
-            <span></span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2022</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="nps搭建内网穿透">
-        <div class="time-m-d">03-23</div>
-        <div class="title">
-          <a href="/2022/03/23/nps搭建内网穿透/">
-            <span>nps搭建内网穿透</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#静态代理模式"><span class="toc-text">静态代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#好处"><span class="toc-text">好处</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
+
     
-      <div class="post-item" title="如何搭建hexo博客">
-        <div class="time-m-d">03-21</div>
-        <div class="title">
-          <a href="/2022/03/21/hexo博客基本原理/">
-            <span>如何搭建hexo博客</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="hexo插入本地图片">
-        <div class="time-m-d">03-19</div>
-        <div class="title">
-          <a href="/2022/03/19/hexo插入本地图片/">
-            <span>hexo插入本地图片</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2017</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="Git&Github的一些资料">
-        <div class="time-m-d">03-15</div>
-        <div class="title">
-          <a href="/2017/03/15/Git and Github/">
-            <span>Git&Github的一些资料</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="一些杰出的个人博客和网站">
-        <div class="time-m-d">03-15</div>
-        <div class="title">
-          <a href="/2017/03/15/boke/">
-            <span>一些杰出的个人博客和网站</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="In&Out">
-        <div class="time-m-d">03-15</div>
-        <div class="title">
-          <a href="/2017/03/15/second/">
-            <span>In&Out</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2016</span>
-          </h2>
-        </div>
-      
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">09-10</div>
-        <div class="title">
-          <a href="/2016/09/10/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         <div class="footer">
   <div class="social">
@@ -301,7 +293,7 @@
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Suche">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -491,6 +483,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F + '&url=' + http%3A%2F%2Fyoursite.com%2F2022%2F04%2F04%2F%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2022/04/04/静态代理模式/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   <script src="/js/shares.js"></script>
 
