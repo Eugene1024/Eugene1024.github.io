@@ -11,7 +11,7 @@
   
   <title>
     
-      In&amp;Out 
+      Java中lamda表达式的演进 
       
       
       |
@@ -127,24 +127,34 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">In&Out</div>
+      <div class="post-title">Java中lamda表达式的演进</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2017-03-15 16:35:10
+          2023-04-07 16:51:43
         </span>
         
       </div>
       <div class="markdown-body">
-        <p>基本理念是：<strong>快读学习理论知识+动手练习+动手实践</strong></p>
-<p>发现现在的我远远没有达到输入值，输入影响输出输出小于目前的输入。</p>
-<p>Practise more  from this article !</p>
+        <p>1.为什么会有lamda表达式？</p>
+<p>避免匿名内部类定义过多，简化代码</p>
+<p>2.lamda表达式是什么？</p>
+<p>首先需要知道什么是函数式接口，函数式接口是只有一个抽象方法的接口，lamda表达式可以用来表示函数式接口的实现类，如下是一个简单的接口和实现类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//定义一个函数式的接口</div><div class="line">interface Lam&#123;</div><div class="line">    void lamda();</div><div class="line">&#125;</div><div class="line">//1.定义函数式接口的实现类</div><div class="line">class Lamimpl implements Lam</div><div class="line">    @Override</div><div class="line">    public void lamda() &#123;</div><div class="line">        System.out.println(&quot;lamdaimpl1&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<p>使用lamda可以表示为如下，只重视参数类型和方法体，方法体只有一句代码的时候{}也可以省略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Lam lam =()-&gt; &#123;System.out.println(&quot;lamda表达式创建！&quot;)&#125;;</div></pre></td></tr></table></figure>
+
+<p>3.lamda表达式的推演过程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">public class Lamda &#123;</div><div class="line">    //2.静态内部类</div><div class="line">    static class Lamimpl2 implements Lam &#123;</div><div class="line">        @Override</div><div class="line">        public void lamda() &#123;</div><div class="line">            System.out.println(&quot;lamdaimpl2&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Lam lam = new Lamimpl();</div><div class="line">        lam.lamda();</div><div class="line">        lam = new Lamimpl2();</div><div class="line">        lam.lamda();</div><div class="line">        //3.局部内部类</div><div class="line">        class Lamimpl3 implements Lam &#123;</div><div class="line">            @Override</div><div class="line">            public void lamda() &#123;</div><div class="line">                System.out.println(&quot;lamdaimpl3&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        lam = new Lamimpl3();</div><div class="line">        lam.lamda();</div><div class="line">        //4.匿名内部类</div><div class="line">        lam = new Lam() &#123;</div><div class="line">            @Override</div><div class="line">            public void lamda() &#123;</div><div class="line">                System.out.println(&quot;lamdaimpl4&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        lam.lamda();</div><div class="line">        //5.lam表达式，简化匿名内部类，用来创建函数式接口(只有一个抽象方法的接口)的对象</div><div class="line">        lam = () -&gt; System.out.println(&quot;lamda表达式创建！&quot;);</div><div class="line">        lam.lamda();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//定义一个函数式的接口</div><div class="line">interface Lam &#123;</div><div class="line">    void lamda();</div><div class="line">&#125;</div><div class="line">//1.定义函数式接口的实现类</div><div class="line">class Lamimpl implements Lam &#123;</div><div class="line">    @Override</div><div class="line">    public void lamda() &#123;</div><div class="line">        System.out.println(&quot;lamdaimpl1&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2016/09/10/hello-world/" target="_self">
+              <a href="/2022/04/04/静态代理模式/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>Prev</span>
               </a>
@@ -153,35 +163,17 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2017-03-15 16:35:10
+              2023-04-07 16:51:43
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2017/03/15/Git and Github/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#输入与输出"><span class="toc-text">输入与输出</span></a></li></ol>
-    </div>
-  </div>
-
-  <script src="/js/catalog.js"></script>
-
-
 
     
       <div class="comments-container">
@@ -486,12 +478,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + In%26Out + '&url=' + http%3A%2F%2Fyoursite.com%2F2017%2F03%2F15%2Fsecond%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Java%E4%B8%ADlamda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%BC%94%E8%BF%9B + '&url=' + http%3A%2F%2Fyoursite.com%2F2023%2F04%2F07%2FJava%E4%B8%ADlamda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%BC%94%E8%BF%9B%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2017/03/15/second/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2023/04/07/Java中lamda表达式的演进/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         

@@ -11,7 +11,7 @@
   
   <title>
     
-      In&amp;Out 
+      &#39;hello&#39; 
       
       
       |
@@ -127,61 +127,46 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">In&Out</div>
+      <div class="post-title">'hello'</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Update time"></i>
-          2017-03-15 16:35:10
+          <i class="iconfont icon-updatetime" title="Hora de actualización"></i>
+          2023-04-06 10:37:40
         </span>
         
       </div>
       <div class="markdown-body">
-        <p>基本理念是：<strong>快读学习理论知识+动手练习+动手实践</strong></p>
-<p>发现现在的我远远没有达到输入值，输入影响输出输出小于目前的输入。</p>
-<p>Practise more  from this article !</p>
+        <p>12131</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">2343242</div><div class="line">3432</div><div class="line">3424324</div><div class="line">3242342</div></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class StaticProxy &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        WeddingCompany weddingCompany = new WeddingCompany(new You());</div><div class="line">        weddingCompany.happyMarry();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">interface Marry &#123;</div><div class="line">    void happyMarry();</div><div class="line">&#125;</div><div class="line">class You implements Marry &#123;</div><div class="line">    @Override</div><div class="line">    public void happyMarry() &#123;</div><div class="line">        System.out.println(&quot;本人结婚了！&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">class WeddingCompany implements Marry &#123;</div><div class="line">    private Marry marry;</div><div class="line">    public WeddingCompany(Marry marry) &#123;</div><div class="line">        this.marry = marry;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public void happyMarry() &#123;</div><div class="line">        System.out.println(&quot;结婚前的操作！&quot;);</div><div class="line">        this.marry.happyMarry();</div><div class="line">        System.out.println(&quot;结婚后的操作！&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2016/09/10/hello-world/" target="_self">
+              <a href="/2022/04/04/静态代理模式/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
-                <span>Prev</span>
+                <span>Previo</span>
               </a>
             
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Update time"></i>
-              2017-03-15 16:35:10
+              <i class="iconfont icon-updatetime" title="Hora de actualización"></i>
+              2023-04-06 10:37:40
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2017/03/15/Git and Github/" target="_self">
-                <span>Next</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">Contents</div>
-    <div class="catalog-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#输入与输出"><span class="toc-text">输入与输出</span></a></li></ol>
-    </div>
-  </div>
-
-  <script src="/js/catalog.js"></script>
-
-
 
     
       <div class="comments-container">
@@ -289,7 +274,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+          <input type="text" class="search-input" id="search-input" placeholder="Buscar">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -341,7 +326,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Primera búsqueda, se está cargando el archivo índice, por favor espere...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -437,7 +422,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Sin resultados<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
@@ -486,12 +471,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + In%26Out + '&url=' + http%3A%2F%2Fyoursite.com%2F2017%2F03%2F15%2Fsecond%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + 'hello' + '&url=' + http%3A%2F%2Fyoursite.com%2F2023%2F04%2F06%2Fhello%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2017/03/15/second/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2023/04/06/hello/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
