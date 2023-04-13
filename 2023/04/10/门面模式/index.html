@@ -136,7 +136,21 @@ MathJax = {
         
       </div>
       <div class="markdown-body">
-        
+        <h3 id="一、门面模式是什么？"><a href="#一、门面模式是什么？" class="headerlink" title="一、门面模式是什么？"></a>一、门面模式是什么？</h3><p>门面模式，是指提供一个统一的接口去访问多个子系统的多个不同的接口，它为子系统中的一组接口提供一个统一的高层接口。使得子系统更容易使用。</p>
+<h3 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h3><p>子系统，不同子系统处理不同的逻辑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">public class ClassA &#123;</div><div class="line">     public void doSomethingA()&#123;</div><div class="line">             //业务逻辑A</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">public class ClassB &#123;</div><div class="line">     public void doSomethingB()&#123;</div><div class="line">             //业务逻辑B</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line">public class ClassC &#123;</div><div class="line">     public void doSomethingC()&#123;</div><div class="line">             //业务逻辑C</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<p>要使用这三个子系统的业务的时候,需要分别创建对象使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ClassA a = new ClassA();</div><div class="line">a.doSomethingA();</div><div class="line">ClassA b = new ClassB();</div><div class="line">b.doSomethingB();</div><div class="line">ClassA c = new ClassC();</div><div class="line">c.doSomethingC();</div></pre></td></tr></table></figure>
+
+<p>当很多地方都用到这样的业务的时候，并且其中的业务还修改的时候，就很恼火，需要去每个地方修改，这个时候我们就可以把这些业务抽象出来提供门面进行调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">public class Facade &#123;</div><div class="line">     //被委托的对象</div><div class="line">     private ClassA a = new ClassA();</div><div class="line">     private ClassB b = new ClassB();</div><div class="line">     private ClassC c = new ClassC();</div><div class="line">     //提供给外部访问的方法</div><div class="line">     public void methodA()&#123;</div><div class="line">             this.a.doSomethingA();</div><div class="line">     &#125;</div><div class="line">     public void methodB()&#123;</div><div class="line">             this.b.doSomethingB();</div><div class="line">     &#125;</div><div class="line">     public void methodC()&#123;</div><div class="line">             this.c.doSomethingC();</div><div class="line">     &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<p>调用的时候使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Facade f = new Facade();</div><div class="line">f.methodA();</div></pre></td></tr></table></figure>
+
+<p>当methodA()方法发生改变的时候，我们只需要修改methdA()方法即可，调用的地方不用调整。</p>
+
       </div>
       
         <div class="prev-or-next">
@@ -167,6 +181,19 @@ MathJax = {
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Content</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、门面模式是什么？"><span class="toc-text">一、门面模式是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、代码实现"><span class="toc-text">二、代码实现</span></a></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
 
     
       <div class="comments-container">
