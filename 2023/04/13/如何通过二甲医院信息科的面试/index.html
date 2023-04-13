@@ -11,7 +11,7 @@
   
   <title>
     
-      Java中lamda表达式的演进 
+      如何通过二甲医院的面试 
       
       
       |
@@ -127,34 +127,32 @@ MathJax = {
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">Java中lamda表达式的演进</div>
+      <div class="post-title">如何通过二甲医院的面试</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime" title="Update time"></i>
-          2023-04-07 16:51:43
+          2023-04-13 16:52:22
         </span>
         
       </div>
       <div class="markdown-body">
-        <p>1.为什么会有lamda表达式？</p>
-<p>避免匿名内部类定义过多，简化代码</p>
-<p>2.lamda表达式是什么？</p>
-<p>首先需要知道什么是函数式接口，函数式接口是只有一个抽象方法的接口，lamda表达式可以用来表示函数式接口的实现类，如下是一个简单的接口和实现类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//定义一个函数式的接口</div><div class="line">interface Lam&#123;</div><div class="line">    void lamda();</div><div class="line">&#125;</div><div class="line">//1.定义函数式接口的实现类</div><div class="line">class Lamimpl implements Lam</div><div class="line">    @Override</div><div class="line">    public void lamda() &#123;</div><div class="line">        System.out.println(&quot;lamdaimpl1&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-<p>使用lamda可以表示为如下，只重视参数类型和方法体，方法体只有一句代码的时候{}也可以省略</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Lam lam =()-&gt; &#123;System.out.println(&quot;lamda表达式创建！&quot;)&#125;;</div></pre></td></tr></table></figure>
-
-<p>3.lamda表达式的推演过程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">public class Lamda &#123;</div><div class="line">    //2.静态内部类</div><div class="line">    static class Lamimpl2 implements Lam &#123;</div><div class="line">        @Override</div><div class="line">        public void lamda() &#123;</div><div class="line">            System.out.println(&quot;lamdaimpl2&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Lam lam = new Lamimpl();</div><div class="line">        lam.lamda();</div><div class="line">        lam = new Lamimpl2();</div><div class="line">        lam.lamda();</div><div class="line">        //3.局部内部类</div><div class="line">        class Lamimpl3 implements Lam &#123;</div><div class="line">            @Override</div><div class="line">            public void lamda() &#123;</div><div class="line">                System.out.println(&quot;lamdaimpl3&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        lam = new Lamimpl3();</div><div class="line">        lam.lamda();</div><div class="line">        //4.匿名内部类</div><div class="line">        lam = new Lam() &#123;</div><div class="line">            @Override</div><div class="line">            public void lamda() &#123;</div><div class="line">                System.out.println(&quot;lamdaimpl4&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        lam.lamda();</div><div class="line">        //5.lam表达式，简化匿名内部类，用来创建函数式接口(只有一个抽象方法的接口)的对象</div><div class="line">        lam = () -&gt; System.out.println(&quot;lamda表达式创建！&quot;);</div><div class="line">        lam.lamda();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//定义一个函数式的接口</div><div class="line">interface Lam &#123;</div><div class="line">    void lamda();</div><div class="line">&#125;</div><div class="line">//1.定义函数式接口的实现类</div><div class="line">class Lamimpl implements Lam &#123;</div><div class="line">    @Override</div><div class="line">    public void lamda() &#123;</div><div class="line">        System.out.println(&quot;lamdaimpl1&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
+        <p>前段时间去参加了一家二甲医院信息科的面试，最后通过了没去，下面总结下经验。</p>
+<h4 id="1、对信息敏感"><a href="#1、对信息敏感" class="headerlink" title="1、对信息敏感"></a>1、对信息敏感</h4><p> 要知道市场上那些公司岗位招人，如果你都部知道哪些好的单位在招聘什么时候招聘更不用说进入这些单位了。市场上这些岗位薪资如何，评估下自己的能力在市场上的薪资水平，自己投简历的的时候找符合自己预期的工作。</p>
+<h4 id="2、夯实基础知识"><a href="#2、夯实基础知识" class="headerlink" title="2、夯实基础知识"></a>2、夯实基础知识</h4><p>招聘的技术岗位，技术面试是比较重要的，一般普通技术岗位考察的都是基础知识，所以自己平时注意基础知识的学习是比较重要的。比如sql&#x2F;一些web知识&#x2F;一些遇到问题的解决思路。</p>
+<h4 id="3、沟通表达能力"><a href="#3、沟通表达能力" class="headerlink" title="3、沟通表达能力"></a>3、沟通表达能力</h4><p>面试的时候不只是看面试人的专业知识，也是在看这个人的沟通语言能力怎么样，临时反应能力怎么样，所以平时应该注意沟通表达能力的锻炼，比如会议的时候多发言，表达能力不好的多练习，面试的时候能自然简洁清楚、有逻辑的的表达自己的专业能力或则项目而不会怯场。</p>
+<h4 id="4、放松的状态"><a href="#4、放松的状态" class="headerlink" title="4、放松的状态"></a>4、放松的状态</h4><p>不要把结果看的太重，面试没有通过也没什么，让自己放松，发挥出自己的正常水平，结合面试官的问题展示自己的优点。</p>
+<h4 id="5、穿着得体"><a href="#5、穿着得体" class="headerlink" title="5、穿着得体"></a>5、穿着得体</h4><p>穿着得体、整齐、头发整齐会让身体和心里都有一定的舒适感，也会让自己更加的放松以及有信心，能展现出更多的活力，从而有更好的表现。</p>
+<p>上面基本上这次面试前以及过程中自己做的好的五点，同时自己还能继续提高的部分。面试通过以后还遇到两个问题。</p>
+<h4 id="1、谈薪资"><a href="#1、谈薪资" class="headerlink" title="1、谈薪资"></a>1、谈薪资</h4><p>面试通过后通常会和HR弹薪资，有的时候还会遇到HR放冷箭或则压薪资，要有一定的心里准备，自己应该坚持自己的想法，比如自己想要5K就和HR沟通自己的真实想法，如果自己的期望超出了公司能给出的薪资，那么就需要双方充分沟通，真诚沟通，如果双方都有意最后达成双方比较满意的结果。</p>
+<h4 id="2、去不去"><a href="#2、去不去" class="headerlink" title="2、去不去"></a>2、去不去</h4><p>薪资谈好了offer到手了，在职状态下去不去，通常这个时候应该理性思考，是不是比自己原来的工作好，自己有没有一定的成长空间，事少钱多离家近占几个，自己要理性考虑清楚，换工作是个复杂的事，重新面对新的环境，自己是否做好了换工作的心里准备。</p>
+<p>不要带有情绪化的去考虑，拿不定的时候可以多问问同行或则年龄大的长辈的经验做出合适的选择。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2022/04/04/静态代理模式/" target="_self">
+              <a href="/2023/04/10/门面模式/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>zurück</span>
               </a>
@@ -163,22 +161,30 @@ MathJax = {
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime" title="Update time"></i>
-              2023-04-07 16:51:43
+              2023-04-13 16:52:22
             </span>
             
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2023/04/10/门面模式/" target="_self">
-                <span>weiter</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Content</div>
+    <div class="catalog-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、对信息敏感"><span class="toc-text">1、对信息敏感</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、夯实基础知识"><span class="toc-text">2、夯实基础知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、沟通表达能力"><span class="toc-text">3、沟通表达能力</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、放松的状态"><span class="toc-text">4、放松的状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、穿着得体"><span class="toc-text">5、穿着得体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1、谈薪资"><span class="toc-text">1、谈薪资</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、去不去"><span class="toc-text">2、去不去</span></a></li></ol>
+    </div>
+  </div>
+
+  <script src="/js/catalog.js"></script>
+
+
 
     
       <div class="comments-container">
@@ -483,12 +489,12 @@ MathJax = {
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Java%E4%B8%ADlamda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%BC%94%E8%BF%9B + '&url=' + http%3A%2F%2Fyoursite.com%2F2023%2F04%2F07%2FJava%E4%B8%ADlamda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9A%84%E6%BC%94%E8%BF%9B%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E4%BA%8C%E7%94%B2%E5%8C%BB%E9%99%A2%E7%9A%84%E9%9D%A2%E8%AF%95 + '&url=' + http%3A%2F%2Fyoursite.com%2F2023%2F04%2F13%2F%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E4%BA%8C%E7%94%B2%E5%8C%BB%E9%99%A2%E4%BF%A1%E6%81%AF%E7%A7%91%E7%9A%84%E9%9D%A2%E8%AF%95%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2023/04/07/Java中lamda表达式的演进/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://yoursite.com/2023/04/13/如何通过二甲医院信息科的面试/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
