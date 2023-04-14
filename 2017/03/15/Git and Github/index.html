@@ -130,7 +130,7 @@ MathJax = {
       <div class="post-title">Git&Github的一些资料</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Update time"></i>
+          <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
           2017-03-15 16:35:10
         </span>
         
@@ -172,13 +172,13 @@ MathJax = {
             
               <a href="/2017/03/15/boke/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
-                <span>zurück</span>
+                <span>Précédent</span>
               </a>
             
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Update time"></i>
+              <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
               2017-03-15 16:35:10
             </span>
             
@@ -186,7 +186,7 @@ MathJax = {
           <div class="post-foot-prev">
             
               <a href="/2022/03/19/hexo插入本地图片/" target="_self">
-                <span>weiter</span>
+                <span>Suivant</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
             
@@ -302,7 +302,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Suche">
+          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -354,7 +354,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -450,7 +450,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
