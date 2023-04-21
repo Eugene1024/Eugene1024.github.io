@@ -130,7 +130,7 @@ MathJax = {
       <div class="post-title">nps搭建内网穿透</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+          <i class="iconfont icon-updatetime" title="Update time"></i>
           2022-03-23 15:12:33
         </span>
         
@@ -194,13 +194,13 @@ MathJax = {
             
               <a href="/2022/03/21/hexo博客基本原理/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
-                <span>Précédent</span>
+                <span>Prev</span>
               </a>
             
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+              <i class="iconfont icon-updatetime" title="Update time"></i>
               2022-03-23 15:12:33
             </span>
             
@@ -208,7 +208,7 @@ MathJax = {
           <div class="post-foot-prev">
             
               <a href="/2022/03/31/普通人眼里的犹豫拖延和意识/" target="_self">
-                <span>Suivant</span>
+                <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
             
@@ -221,7 +221,7 @@ MathJax = {
     <i class="iconfont icon-catalog"></i>
   </div>
   <div class="post-catalog hidden" id="catalog">
-    <div class="title">catalogue</div>
+    <div class="title">Contents</div>
     <div class="catalog-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#nps搭建内网穿透"><span class="toc-text">nps搭建内网穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、基本条件"><span class="toc-text">一、基本条件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、在服务器上安装好nps的server端"><span class="toc-text">二、在服务器上安装好nps的server端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、安装客户端"><span class="toc-text">三、安装客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、内网穿透"><span class="toc-text">四、内网穿透</span></a></li></ol></li></ol>
     </div>
@@ -337,7 +337,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -389,7 +389,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -485,7 +485,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
             }
             $resultContent.innerHTML = str;
           });

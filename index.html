@@ -98,6 +98,19 @@
   <div class="post-list">
     <!-- 遍历渲染文章 -->
     
+      <div class="post-item" title="浪花之上，浪花之下">
+        <div class="time-m-d">2023-04-21</div>
+        <div class="title">
+          <a href="/2023/04/21/浪花之上，浪花之下/">
+            
+              
+                <span>浪花之上，浪花之下</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
       <div class="post-item" title="如何通过二甲医院的面试">
         <div class="time-m-d">2023-04-13</div>
         <div class="title">
@@ -215,19 +228,6 @@
         </div>
       </div>
     
-      <div class="post-item" title="一些杰出的个人博客和网站">
-        <div class="time-m-d">2017-03-15</div>
-        <div class="title">
-          <a href="/2017/03/15/boke/">
-            
-              
-                <span>一些杰出的个人博客和网站</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
   </div>
   <nav class="post-navigation">
     
@@ -328,7 +328,7 @@
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -380,7 +380,7 @@
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -476,7 +476,7 @@
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
             }
             $resultContent.innerHTML = str;
           });

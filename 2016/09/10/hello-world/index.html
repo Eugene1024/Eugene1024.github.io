@@ -130,7 +130,7 @@ MathJax = {
       <div class="post-title">Hello World</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+          <i class="iconfont icon-updatetime" title="Update time"></i>
           2016-09-10 02:33:31
         </span>
         
@@ -158,7 +158,7 @@ MathJax = {
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+              <i class="iconfont icon-updatetime" title="Update time"></i>
               2016-09-10 02:33:31
             </span>
             
@@ -166,7 +166,7 @@ MathJax = {
           <div class="post-foot-prev">
             
               <a href="/2017/03/15/second/" target="_self">
-                <span>Suivant</span>
+                <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
             
@@ -179,7 +179,7 @@ MathJax = {
     <i class="iconfont icon-catalog"></i>
   </div>
   <div class="post-catalog hidden" id="catalog">
-    <div class="title">catalogue</div>
+    <div class="title">Contents</div>
     <div class="catalog-content">
       <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
     </div>
@@ -295,7 +295,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -347,7 +347,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -443,7 +443,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
             }
             $resultContent.innerHTML = str;
           });

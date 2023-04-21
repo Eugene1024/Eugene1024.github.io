@@ -130,7 +130,7 @@ MathJax = {
       <div class="post-title">project</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+          <i class="iconfont icon-updatetime" title="Update time"></i>
           2016-09-12 13:47:21
         </span>
         
@@ -145,7 +145,7 @@ MathJax = {
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+              <i class="iconfont icon-updatetime" title="Update time"></i>
               2016-09-12 13:47:21
             </span>
             
@@ -264,7 +264,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -316,7 +316,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -412,7 +412,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
             }
             $resultContent.innerHTML = str;
           });

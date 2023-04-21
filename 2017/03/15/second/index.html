@@ -130,7 +130,7 @@ MathJax = {
       <div class="post-title">In&Out</div>
       <div class="post-attach">
         <span class="post-pubtime">
-          <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+          <i class="iconfont icon-updatetime" title="Update time"></i>
           2017-03-15 16:35:10
         </span>
         
@@ -146,13 +146,13 @@ MathJax = {
             
               <a href="/2016/09/10/hello-world/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
-                <span>Précédent</span>
+                <span>Prev</span>
               </a>
             
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
-              <i class="iconfont icon-updatetime" title="Heure de mise à jour"></i>
+              <i class="iconfont icon-updatetime" title="Update time"></i>
               2017-03-15 16:35:10
             </span>
             
@@ -160,7 +160,7 @@ MathJax = {
           <div class="post-foot-prev">
             
               <a href="/2017/03/15/boke/" target="_self">
-                <span>Suivant</span>
+                <span>Next</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
             
@@ -173,7 +173,7 @@ MathJax = {
     <i class="iconfont icon-catalog"></i>
   </div>
   <div class="post-catalog hidden" id="catalog">
-    <div class="title">catalogue</div>
+    <div class="title">Contents</div>
     <div class="catalog-content">
       <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#输入与输出"><span class="toc-text">输入与输出</span></a></li></ol>
     </div>
@@ -289,7 +289,7 @@ MathJax = {
           </a>
         </span>
         
-          <input type="text" class="search-input" id="search-input" placeholder="Rechercher">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
         <span class="search-close-icon" id="search-close-icon">
           <a href="javascript: void(0)">
@@ -341,7 +341,7 @@ MathJax = {
       'use strict';
       var $input = document.getElementById(search_id);
       var $resultContent = document.getElementById(content_id);
-      $resultContent.innerHTML = "<ul><span class='local-search-empty'>Première recherche, en cours de chargement du fichier index, plus tard …<span></ul>";
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
       $.ajax({
         // 0x01. load xml file
         url: path,
@@ -437,7 +437,7 @@ MathJax = {
             });
             str += "</ul>";
             if (str.indexOf('<li>') === -1) {
-              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>Aucun contenu n’a été trouvé, essayez de remplacer le terme de recherche.<span></ul>";
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
             }
             $resultContent.innerHTML = str;
           });
